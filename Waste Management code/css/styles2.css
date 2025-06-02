@@ -1,0 +1,126 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #303054;
+    width: 100%;
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+header .navbar-brand {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    padding: 8px 0px !important;
+    background-color: #303054; /* Add a background color to the nav bar */
+}
+
+nav .navbar-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav .navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+nav .navbar-nav .nav-item .nav-link {
+    color: #fff; /* Set the text color for nav links */
+    padding: 10px 15px; /* Add padding to nav links */
+    font-size: 1rem; /* Set font size for nav links */
+    text-decoration: none;
+    transition: all 0.3s; /* Smooth transition for hover effects */
+}
+
+nav .navbar-nav .nav-item .nav-link:hover {
+    background-color: #e6edff; /* Background color on hover */
+    color: #303054; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Section styles */
+.cont-sec {
+    padding: 20px;
+    background-color: #e6edff;
+    width: 100%;
+}
+
+.cont-sec .contact-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counselling-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.counselling-form h2 {
+    font-size: 28px;
+    font-weight: 500;
+    border-left: 8px solid #303054;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+
+.counselling-form .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.counselling-form .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.counselling-form .input-group input,
+.counselling-form .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.counselling-form .btn1 {
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #303054;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    transition: all 0.5s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.counselling-form .btn1:hover {
+    background-color: #e6edff;
+    color: #303054;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thank You!</title>
+  <style>
+    /* Reset and base styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e0f7ea, #a3d9a5);
+      color: #28a745;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Container for content with fade-in */
+    .content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.5s ease forwards;
+      padding: 2rem 3rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Circular Image Styles */
+    .circle-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid #28a745;
+      margin-bottom: 30px;
+      box-shadow: 0 0 25px #34d399aa;
+      animation: pulseGlow 3s ease-in-out infinite;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .circle-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px 6px #34d399aa;
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 40px 14px #4ade8077;
+        transform: scale(1.05);
+      }
+    }
+
+    /* Animated Heading */
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 8px #28a745aa, 0 0 20px #28a745bb;
+      animation: glow 2.5s ease-in-out infinite alternate;
+      color: #237a2b;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 8px #28a745aa, 0 0 20px #28a745bb;
+      }
+      to {
+        text-shadow: 0 0 20px #4ade80cc, 0 0 30px #4ade80dd;
+      }
+    }
+
+    /* Button Styling */
+    .back-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: linear-gradient(45deg, #10b981, #059669);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.6);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: buttonFadeIn 2s ease forwards;
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(45deg, #34d399, #047857);
+      box-shadow: 0 6px 25px rgba(52, 211, 153, 0.9);
+      transform: translateY(-3px);
+    }
+
+    @keyframes buttonFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const message = urlParams.get("message");
+      if (message) {
+        document.getElementById("thankYouMessage").textContent = message;
+      }
+    };
+  </script>
+</head>
+<body>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="circle-img">
+      <img src="OIP.jpg" alt="Success Image" />
+      <!-- Replace 'OIP.jpg' with your actual image path -->
+    </div>
+
+    <h1 id="thankYouMessage">Thank you for your submission!</h1>
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </div>
+
+</body>
+</html>

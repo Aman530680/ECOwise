@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phohor Malae</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8e6cf, #81c784);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            width: 900px;
+            max-width: 100%;
+            min-height: 550px;
+            display: flex;
+            position: relative;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            transition: all 0.6s ease-in-out;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            text-align: center;
+        }
+
+        .sign-in {
+            left: 0;
+            z-index: 2;
+        }
+
+        .sign-up {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .container.active .sign-in {
+            transform: translateX(100%);
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .container.active .sign-up {
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .icon {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            height: 45px;
+            width: 45px;
+            font-size: 20px;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .icon:hover {
+            background: #81c784;
+            color: #fff;
+            border-color: #81c784;
+        }
+
+        input {
+            background: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        button {
+            border-radius: 20px;
+            border: none;
+            padding: 12px 50px;
+            background-color: #81c784;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #66bb6a;
+        }
+
+        a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .toggle-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            z-index: 1000;
+        }
+
+        .toggle {
+            background: linear-gradient(135deg, #a8e6cf, #81c784);
+            color: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 30px;
+        }
+
+        .toggle-panel {
+            padding: 0 40px;
+        }
+
+        .toggle-panel h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .toggle-panel p {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            background: transparent;
+            border: 1px solid #fff;
+            padding: 12px 30px;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hidden:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-container sign-in">
+            <form id="sign-in-form">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your username and password</span>
+                <input type="text" placeholder="Username" id="signin-username" required>
+                <input type="password" placeholder="Password" id="signin-password" required>
+                <a href="#">Forgot Your Password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Toggle Panels -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of our site's features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to start using our services</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+ <script>
+    // Get DOM elements
+    const container = document.getElementById('container');
+    const registerButton = document.getElementById('register');
+    const loginButton = document.getElementById('login');
+
+    // Toggle container class for Register and Login
+    registerButton.addEventListener('click', () => {
+        container.classList.add("active");
+    });
+
+    loginButton.addEventListener('click', () => {
+        container.classList.remove("active");
+    });
+
+    // Sign In validation with multiple users
+    const signInForm = document.getElementById('sign-in-form');
+
+    signInForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // stop form submission
+
+        // Get entered values
+        const username = document.getElementById('signin-username').value.trim();
+        const password = document.getElementById('signin-password').value.trim();
+
+        // List of valid users
+        const validUsers = [
+            { username: 'demo', password: 'demo' },
+            { username: 'aman', password: '1234' },
+            { username: 'user', password: 'user' },
+            { username: 'ashok', password: '1234' }
+        ];
+
+        // Check if entered credentials are valid
+        const isValidUser = validUsers.some(user => 
+            user.username === username && user.password === password
+        );
+
+        if (isValidUser) {
+            // ✅ Redirect to main page if credentials match
+            window.location.href = 'mainpage.html'; // replace with your actual file path
+        } else {
+            // ❌ Show error if invalid
+            alert('❌ Invalid Credentials.');
+        }
+    });
+</script>
+
+
+
+</body>
+
+</html>
